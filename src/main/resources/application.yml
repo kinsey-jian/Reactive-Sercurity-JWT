@@ -1,0 +1,23 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: food-sas-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&connectTimeout=2000&socketTimeout=6000&autoReconnect=true&rewriteBatchedStatements=TRUE
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 500
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+        naming:
+          physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
